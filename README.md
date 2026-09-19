@@ -2,6 +2,11 @@
 
 C# / WinForms calculator and reverse solver for Need for Speed World performance tuning.
 
+AI assistance disclosure
+This is an AI-assisted reverse-engineering and reconstruction project. A substantial part of the analysis, research, documentation, code generation, refactoring, and interpretation of reverse-engineered material has been produced with the assistance of ChatGPT by OpenAI, under the direction and review of marek177.
+
+Git commit authorship therefore identifies the account that committed the files and should not be interpreted as meaning that every analysis, document, or line of code was written manually and independently by the repository owner. AI-generated or AI-assisted findings may contain errors, especially where original source code or symbols are unavailable, so important reverse-engineering conclusions should be independently verified against the original executable and game data.
+
 ## Features
 
 - Select a car from extracted `pvehicle` data.
