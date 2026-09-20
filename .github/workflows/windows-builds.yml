@@ -1,0 +1,45 @@
+name: Windows x64 and x86 builds
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*"
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build ${{ matrix.runtime }}
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        runtime:
+          - win-x64
+          - win-x86
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install .NET 8 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Publish self-contained application
+        shell: pwsh
+        run: ./build-release.ps1 -RuntimeIdentifiers ${{ matrix.runtime }} -OutputDirectory artifacts
+
+      - name: Upload ${{ matrix.runtime }} ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: NFSWPerformanceTool-${{ matrix.runtime }}
+          path: artifacts/NFSWPerformanceTool-${{ matrix.runtime }}.zip
+          if-no-files-found: error
+          retention-days: 90
