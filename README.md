@@ -20,9 +20,7 @@ Git commit authorship therefore identifies the account that committed the files 
 
 ## Source
 
-The repository contains the main project files directly. The complete generated source tree, including `MainForm.cs`, `ReverseSolver.cs`, `Data/cars.csv` and `Data/parts.csv`, is also included as:
-
-`NFSWPerformanceTool_CSharp_Source.zip`
+The complete source tree is stored directly in the repository, including `MainForm.cs`, `ReverseSolver.cs`, `Data/cars.csv` and `Data/parts.csv`.
 
 ## Build
 
@@ -35,6 +33,21 @@ dotnet run
 ```
 
 No third-party NuGet packages are required.
+
+### Windows x64 and x86 packages
+
+Run `build-release.ps1` in PowerShell to publish both self-contained Windows packages:
+
+```powershell
+./build-release.ps1
+```
+
+The script creates:
+
+- `artifacts/NFSWPerformanceTool-win-x64.zip`
+- `artifacts/NFSWPerformanceTool-win-x86.zip`
+
+Both packages include the .NET 8 runtime and can run without a separate .NET installation. GitHub Actions builds the same two downloadable artifacts automatically for pull requests, pushes to `main`, version tags and manual workflow runs.
 
 ## Performance formula
 
