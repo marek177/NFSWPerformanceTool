@@ -36,7 +36,13 @@ No third-party NuGet packages are required.
 
 ### Windows x64 and x86 packages
 
-Run `build-release.ps1` in PowerShell to publish both self-contained Windows packages:
+Use one of the batch files on Windows:
+
+- `build-all-windows.bat` — build x64 and x86
+- `build-win-x64.bat` — build x64 only
+- `build-win-x86.bat` — build x86 only
+
+Alternatively, run `build-release.ps1` directly in PowerShell:
 
 ```powershell
 ./build-release.ps1
